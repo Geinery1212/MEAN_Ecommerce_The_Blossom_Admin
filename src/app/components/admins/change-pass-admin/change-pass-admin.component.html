@@ -1,0 +1,130 @@
+<app-sidebar></app-sidebar>
+
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10 col-xl-8">
+
+        <!-- Header -->
+        <div class="header mt-md-5">
+          <div class="header-body">
+            <div class="row align-items-center">
+              <div class="col">
+
+                <!-- Pretitle -->
+                <h6 class="header-pretitle">
+                  Módulo
+                </h6>
+
+                <!-- Title -->
+                <h1 class="header-title">
+                  Administradores
+                </h1>
+
+              </div>
+            </div> <!-- / .row -->
+
+          </div>
+        </div>
+
+        <!-- Alert -->
+
+
+        <!-- Card -->
+        <form #registroForm="ngForm" (ngSubmit)="registro(registroForm)">
+
+          <div class="card">
+            <div class="card-header">
+
+              <!-- Title -->
+              <h3 class="card-header-title">
+                {{page_title}}
+              </h3>
+
+            </div>
+
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="row">
+                    <div class="col-6" *ngIf="!admin.estado_pass">
+                      <div class="form-group" >
+                        <label for="exampleInputEmail1">Contraseña actual</label>
+                        <div class="input-group-append">
+                          <!-- Input -->
+                          <input type="password" class="form-control form-control-appended"
+                            placeholder="Ingresa tu contraseña" id="password" name="password" required
+                            [(ngModel)]="admin.password">
+                          <!-- Icon -->
+                          <span class="input-group-text" (click)="view_password('#password')" style="cursor: pointer;">
+                            <i class="fe fe-eye"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Contraseña nueva</label>
+                        <div class="input-group-append">
+                          <!-- Input -->
+                          <input type="password" class="form-control form-control-appended"
+                            placeholder="Ingresa tu contraseña" id="password1" name="password1" required
+                            [(ngModel)]="admin.password1">
+                          <!-- Icon -->
+                          <span class="input-group-text" (click)="view_password('#password1')" style="cursor: pointer;">
+                            <i class="fe fe-eye"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Contraseña nueva</label>
+                        <div class="input-group-append">
+                          <!-- Input -->
+                          <input type="password" class="form-control form-control-appended"
+                            placeholder="Ingresa tu contraseña" id="password2" name="password2" required
+                            [(ngModel)]="admin.password2">
+                          <!-- Icon -->
+                          <span class="input-group-text" (click)="view_password('#password2')" style="cursor: pointer;">
+                            <i class="fe fe-eye"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1" class="text-danger" *ngIf="!admin.estado_pass" >
+                          Si has olvidado tu contraseña actual, selecciona el campo de abajo, y rellena tu nueva contraseña
+                        </label>
+                        <div class="d-flex justify-content-between align-items-center form-group">
+                          <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="estado_pass"
+                              [(ngModel)]="admin.estado_pass" id="remember-me" checked="" value="0">
+                            <label for="remember-me" class="custom-control-label">Contraseña olvidada</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-warning btn-shadow mr-3" [routerLink]="['/admins/edit/', admin._id]"
+                routerLinkActive="router-link-active">Regresar</a>
+              <button *ngIf="!load_btn" class="btn btn-primary btn-shadow" type="submit">Actualizar</button>
+
+              <button disabled *ngIf="load_btn" type="button" class="btn btn-primary btn-shadow">
+                <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                Creando...
+              </button>
+            </div>
+          </div>
+        </form>
+
+
+      </div>
+    </div> <!-- / .row -->
+  </div>
+</div>

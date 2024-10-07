@@ -1,0 +1,74 @@
+<app-sidebar></app-sidebar>
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10 col-xl-8">
+
+            <!-- Header -->
+            <div class="header mt-md-5">
+              <div class="header-body">
+                <div class="row align-items-center">
+                  <div class="col">
+
+                    <!-- Pretitle -->
+                    <h6 class="header-pretitle">
+                      Módulo
+                    </h6>
+
+                    <!-- Title -->
+                    <h1 class="header-title">
+                        Catalogos
+                    </h1>
+
+                  </div>
+                </div> <!-- / .row -->
+
+              </div>
+            </div>
+
+            <!-- Alert -->
+
+
+            <!-- Card -->
+            <div class="card">
+              <div class="card-header">
+
+                <!-- Title -->
+                <h4 class="card-header-title">
+                  Mostrando todos los catalogos de la tienda
+                </h4>
+
+              </div>
+              <div class="card-body ">
+                    <div class="row">
+                        <div class="col-sm-6">
+                          <select class="form-control" name="envio_activacion" *ngFor="let item of catalogos">
+                              <option  disabled>Selecciona</option>
+                              <option value="{{item.id_catalogo}}">{{item.descripcion}}</option>
+                          </select>
+                        </div>
+                        <div class="col">
+                            <a class="btn btn-primary"  routerLinkActive="router-link-active"  style="cursor: pointer;">Agregar nuevo</a>
+                        </div>
+                    </div>
+              </div>
+
+
+
+            </div>
+            <!--
+                <ngb-pagination *ngIf="categorias.length >= 1"
+                        [(page)]="page"
+                        [pageSize]="pageSize"
+                        [maxSize]="10"
+                        [rotate]="true" [boundaryLinks]="true"
+                [collectionSize]="categorias.length">
+                </ngb-pagination>
+-->
+            <br>
+
+          </div>
+        </div> <!-- / .row -->
+      </div>
+</div>
